@@ -1,28 +1,19 @@
 const langChange = document.querySelector('.checkBox');
-const pageTH = document.querySelectorAll('#content-TH');
-const pageEN = document.querySelectorAll('#content-EN');
+const pageTH = document.querySelector('#content-TH');
+const langTH = document.querySelector('#lang-TH');
+const pageEN = document.querySelector('#content-EN');
+const langEN = document.querySelector('#lang-EN');
 
         langChange.addEventListener('change', () => {
             if (langChange.checked) {
-                document.querySelector('#lang-TH').classList.add('unselected-lang');
-                document.querySelector('#lang-EN').classList.remove('unselected-lang');
+                langTH.classList.add('unselected-lang');
+                pageTH.classList.remove('active');
+                langEN.classList.remove('unselected-lang');
+                pageEN.classList.add('active');
             } else {
-                document.querySelector('#lang-EN').classList.add('unselected-lang');
-                document.querySelector('#lang-TH').classList.remove('unselected-lang');
-            }
-
-            pageEN.forEach(component => {
-                if (langChange.checked) {
-                    component.classList.add('active');
-                } else {
-                    component.classList.remove('active');
-                }
-            });
-            pageTH.forEach(component => {
-                if (!langChange.checked) {
-                    component.classList.add('active');
-                } else {
-                    component.classList.remove('active');
-                }
-            });
+                langEN.classList.add('unselected-lang');
+                pageEN.classList.remove('active');
+                langTH.classList.remove('unselected-lang');
+                pageTH.classList.add('active');
+            };
         });
